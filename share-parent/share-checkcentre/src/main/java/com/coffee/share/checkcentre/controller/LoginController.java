@@ -1,6 +1,5 @@
 package com.coffee.share.checkcentre.controller;
 
-import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -22,7 +21,6 @@ import com.coffee.share.checkcentre.service.AuthenticationHandler;
 import com.coffee.share.checkcentre.service.PreLoginHandler;
 import com.coffee.share.checkcentre.service.TokenManagerService;
 import com.coffee.share.checkcentre.util.Configuration;
-import com.coffee.share.common.domain.ClientSystem;
 import com.coffee.share.common.utils.CommonConstant;
 import com.coffee.share.common.utils.CookieUtil;
 import com.coffee.share.common.utils.UuidUitl;
@@ -165,11 +163,11 @@ public class LoginController {
 		resp.addCookie(cookie);
 
 		// 通知所有的客户端推出
-		List<ClientSystem> clientSystems = config.getClientSystems();
-		for (ClientSystem clientSystem : clientSystems) {
-			clientSystem.noticeLogout(vt);
-			//TODO 通知所有的客户端
-		}
+//		List<ClientSystem> clientSystems = config.getClientSystems();
+//		for (ClientSystem clientSystem : clientSystems) {
+////			clientSystem.noticeLogout(vt);  //TODO 待实现
+//			//TODO 通知所有的客户端
+//		}
 		if (backUrl == null) {
 			return "/logout";
 		}
