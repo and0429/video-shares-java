@@ -21,7 +21,7 @@ import com.coffee.share.checkcentre.service.AuthenticationHandler;
 import com.coffee.share.checkcentre.service.PreLoginHandler;
 import com.coffee.share.checkcentre.service.TokenManagerService;
 import com.coffee.share.checkcentre.util.Configuration;
-import com.coffee.share.common.utils.CommonConstant;
+import com.coffee.share.common.utils.LoginCheckConstant;
 import com.coffee.share.common.utils.CookieUtil;
 import com.coffee.share.common.utils.UuidUitl;
 
@@ -66,10 +66,10 @@ public class LoginController {
 
 		String loginViewName = config.getLoginViewName();
 
-		String vt = CookieUtil.getCookie(CommonConstant.VT, req); // 验证凭证
+		String vt = CookieUtil.getCookie(LoginCheckConstant.VT, req); // 验证凭证
 
 		if (vt == null) {
-			String lt = CookieUtil.getCookie(CommonConstant.LT, req); // 自动登陆凭证
+			String lt = CookieUtil.getCookie(LoginCheckConstant.LT, req); // 自动登陆凭证
 			if (lt == null) {
 				return getViewName(loginViewName);
 			} else {
@@ -154,11 +154,11 @@ public class LoginController {
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(String backUrl, HttpServletRequest req, HttpServletResponse resp) {
 
-		String vt = CookieUtil.getCookie(CommonConstant.VT, req);
+		String vt = CookieUtil.getCookie(LoginCheckConstant.VT, req);
 		tokenManager.validata(vt); // 移除令牌
 
 		// 删除cookie
-		Cookie cookie = new Cookie(CommonConstant.VT, null);
+		Cookie cookie = new Cookie(LoginCheckConstant.VT, null);
 		cookie.setMaxAge(0);
 		resp.addCookie(cookie);
 

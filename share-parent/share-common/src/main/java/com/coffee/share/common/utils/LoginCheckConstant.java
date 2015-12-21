@@ -6,7 +6,7 @@ package com.coffee.share.common.utils;
  * @author and04
  *
  */
-public interface CommonConstant {
+public interface LoginCheckConstant {
 	
 	String VT = "vt";              //verifier token
 	String LT = "lt";              //自动登陆凭证
