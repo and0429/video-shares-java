@@ -1,4 +1,4 @@
-package com.coffee.share.domain;
+package com.coffee.share.resouce.domain;
 
 /**
  * 地址对象

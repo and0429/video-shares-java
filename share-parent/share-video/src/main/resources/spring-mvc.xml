@@ -10,7 +10,7 @@
 
 	<mvc:default-servlet-handler />
 
-	<context:component-scan base-package="com.coffee.share"
+	<context:component-scan base-package="com.coffee.share.resource"
 		use-default-filters="false">
 		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />

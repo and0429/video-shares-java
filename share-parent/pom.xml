@@ -34,8 +34,9 @@
 		<module>share-common</module>
 		<module>share-loginfilter</module>
 		<module>share-checkcentre</module>
-    <module>share-video</module>
-  </modules>
+		<module>share-video</module>
+		<module>share-system</module>
+	</modules>
 
 	<dependencyManagement>
 		<dependencies>
@@ -205,6 +206,14 @@
 				<artifactId>jackson-databind</artifactId>
 				<version>${jackson.version}</version>
 			</dependency>
+	
+			<!--  -->
+			<dependency>
+				<groupId>org.aspectj</groupId>
+				<artifactId>aspectjweaver</artifactId>
+				<version>1.8.7</version>
+			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 

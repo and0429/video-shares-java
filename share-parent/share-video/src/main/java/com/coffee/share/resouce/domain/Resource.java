@@ -1,7 +1,7 @@
-package com.coffee.share.domain;
+package com.coffee.share.resouce.domain;
 
 /**
- * 视频支援
+ * 资源
  * 
  * @author and04
  *

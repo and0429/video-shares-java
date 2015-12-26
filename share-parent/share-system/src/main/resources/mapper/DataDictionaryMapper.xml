@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.coffee.share.system.dao.DataDictionaryDao">
+
+	<resultMap type="DataDictionary" id="dataDictionary">
+		<id column="id_" property="id" />
+		<result column="key_" property="key" />
+		<result column="value_" property="value" />
+	</resultMap>
+
+
+	<insert id="save" useGeneratedKeys="true" keyProperty="id">
+		insert into t_data_dictionary (key_, value_) values
+		(#{key, jdbcType=VARCHAR}, #{value, jdbcType=VARCHAR})
+	</insert>
+
+	<select id="getValues" resultMap="dataDictionary" parameterType="string">
+		select key_, value_ from t_data_dictionary where key_ = #{key}
+	</select>
+
+
+</mapper>
