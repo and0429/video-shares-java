@@ -20,35 +20,40 @@ import org.slf4j.LoggerFactory;
  *
  */
 public class LoginFilter implements Filter {
-	
-	private static Logger logger = LoggerFactory.getLogger(LoginFilter.class);
 
-	/* (non-Javadoc)
-	 * @see javax.servlet.Filter#init(javax.servlet.FilterConfig)
-	 */
-	@Override
-	public void init(FilterConfig filterConfig) throws ServletException {
-		logger.info("LoginFilter init");
+    private static Logger logger = LoggerFactory.getLogger(LoginFilter.class);
 
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see javax.servlet.Filter#init(javax.servlet.FilterConfig)
+     */
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+        logger.info("LoginFilter init");
 
-	/* (non-Javadoc)
-	 * @see javax.servlet.Filter#doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse, javax.servlet.FilterChain)
-	 */
-	@Override
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-			throws IOException, ServletException {
-		logger.info("LoginFilter doFilter");
-		chain.doFilter(request, response);
-	}
+    }
 
-	/* (non-Javadoc)
-	 * @see javax.servlet.Filter#destroy()
-	 */
-	@Override
-	public void destroy() {
-		logger.info("LoginFilter destroy");
+    /*
+     * (non-Javadoc)
+     * 
+     * @see javax.servlet.Filter#doFilter(javax.servlet.ServletRequest,
+     * javax.servlet.ServletResponse, javax.servlet.FilterChain)
+     */
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        logger.info("LoginFilter doFilter");
+        chain.doFilter(request, response);
+    }
 
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see javax.servlet.Filter#destroy()
+     */
+    @Override
+    public void destroy() {
+        logger.info("LoginFilter destroy");
+    }
 
 }

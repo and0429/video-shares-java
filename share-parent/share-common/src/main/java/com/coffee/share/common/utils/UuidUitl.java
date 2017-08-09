@@ -11,13 +11,13 @@ import org.springframework.util.StringUtils;
  */
 public class UuidUitl {
 
-	/**
-	 * 生成不带“-”的UUID
-	 * 
-	 * @return
-	 */
-	public static String uuid() {
-		String uuid = UUID.randomUUID().toString();
-		return StringUtils.delete(uuid, "-");
-	}
+    /**
+     * 生成不带“-”的UUID
+     * 
+     * @return
+     */
+    public static String uuid() {
+        String uuid = UUID.randomUUID().toString();
+        return StringUtils.delete(uuid, "-");
+    }
 }

@@ -1,7 +1,6 @@
 package com.coffee.share.checkcentre.service.impl;
 
-import javax.inject.Inject;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.DigestUtils;
 import org.springframework.util.StringUtils;
 
@@ -29,7 +28,7 @@ public class UsernameAndPasswordAuthenticationHandler implements AuthenticationH
 
 	private static final String CAPTCHA = "captcha";
 
-	@Inject
+	@Autowired
 	private LoginerUserService loginerUserService;
 
 	/*

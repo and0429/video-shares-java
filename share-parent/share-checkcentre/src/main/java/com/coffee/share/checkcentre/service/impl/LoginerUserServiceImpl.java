@@ -1,7 +1,7 @@
 package com.coffee.share.checkcentre.service.impl;
 
-import javax.inject.Inject;
-import javax.inject.Named;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.coffee.share.checkcentre.dao.LoginerUserDao;
 import com.coffee.share.checkcentre.domain.LoginerUser;
@@ -12,10 +12,10 @@ import com.coffee.share.checkcentre.service.LoginerUserService;
  * @author and04
  *
  */
-@Named
+@Service
 public class LoginerUserServiceImpl implements LoginerUserService {
 
-	@Inject
+	@Autowired
 	private LoginerUserDao dao;
 
 	/*

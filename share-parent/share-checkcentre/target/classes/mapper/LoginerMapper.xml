@@ -4,26 +4,26 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.coffee.share.checkcentre.dao.LoginerUserDao">
 
-	<sql id="select">
-		${loginer}.id_,
-		${loginer}.user_name_,
-		${loginer}.password_
-	</sql>
+    <sql id="select">
+        ${loginer}.id_,
+        ${loginer}.user_name_,
+        ${loginer}.password_
+    </sql>
 
-	<select id="getByUsername" resultMap="loginer">
-		select
-		<include refid="select">
-			<property name="loginer" value="loginer" />
-		</include>
-		from t_loginer loginer
-		where
-		user_name_ = #{username}
-	</select>
+    <select id="getByUsername" resultMap="loginer">
+        select
+        <include refid="select">
+            <property name="loginer" value="loginer" />
+        </include>
+        from t_loginer loginer
+        where
+        user_name_ = #{username}
+    </select>
 
-	<resultMap type="LoginerUser" id="loginer">
-		<id column="id_" property="id" />
-		<result column="user_name_" property="username" />
-		<result column="password_" property="password" />
-	</resultMap>
+    <resultMap type="LoginerUser" id="loginer">
+        <id column="id_" property="id" />
+        <result column="user_name_" property="username" />
+        <result column="password_" property="password" />
+    </resultMap>
 
 </mapper>

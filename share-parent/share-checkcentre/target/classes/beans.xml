@@ -7,56 +7,15 @@
 		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.8.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
-	<!-- <context:annotation-config /> -->
+    
+    <bean id="jaxbUtil" class="com.coffee.share.common.JaxbUtilFactoryBean">
+        <property name="classesToBeBound">
+            <list>
+                <value>com.coffee.share.checkcentre.domain.Token</value>
+            </list>
+        </property>
+    </bean>
+    
+    <bean class="com.coffee.share.common.EnableShareCommon" />
 
-	<context:component-scan base-package="com.coffee.share.checkcentre" use-default-filters="false">
-		<context:include-filter type="annotation" expression="javax.inject.Named" />
-	</context:component-scan>
-
-	<context:property-placeholder location="classpath:db.properties,classpath:config.properties" />
-
-	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
-		<property name="url" value="${jdbc.url}" />
-		<property name="username" value="${jdbc.user}" />
-		<property name="password" value="${jdbc.password}" />
-		<property name="maxActive" value="5" />
-		<!-- <property name="initialSize" value="1" /> -->
-		<!-- <property name="maxWait" value="60000" /> -->
-		<!-- <property name="minIdle" value="1" /> -->
-		<!-- <property name="timeBetweenEvictionRunsMillis" value="60000" /> -->
-		<!-- <property name="minEvictableIdleTimeMillis" value="300000" /> -->
-		<!-- <property name="validationQuery" value="SELECT 'x'" /> -->
-		<!-- <property name="testWhileIdle" value="true" /> -->
-		<!-- <property name="testOnBorrow" value="false" /> -->
-		<!-- <property name="testOnReturn" value="false" /> -->
-		<!-- <property name="poolPreparedStatements" value="true" /> -->
-		<!-- <property name="maxOpenPreparedStatements" value="20" /> -->
-	</bean>
-
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" />
-		<property name="mapperLocations" value="classpath*:mapper/*.xml" />
-		<property name="typeAliasesPackage" value="com.coffee.share.checkcentre.domain" />
-	</bean>
-
-	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg index="0" ref="sqlSessionFactory" />
-	</bean>
-
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.coffee.share.checkcentre.dao" />
-		<property name="sqlSessionTemplateBeanName" value="sqlSession" />
-	</bean>
-
-	<!-- 基本配置 -->
-	<bean id="configuration" class="com.coffee.share.checkcentre.util.Configuration" init-method="refreshConfig" destroy-method="destroy">
-		<property name="loginViewName" value="${viewName}" />
-		<property name="tokenTimeout" value="${tokenTimeout}" />
-		<property name="authenticationHandler">
-			<bean class="${authenticationHandler}" />
-		</property>
-		<property name="preLoginHandler">
-			<bean class="${preLoginHandler}" />
-		</property>
-	</bean>
 </beans>
